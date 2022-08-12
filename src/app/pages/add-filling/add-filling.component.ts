@@ -1,0 +1,35 @@
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
+import Swal from 'sweetalert2'
+import { FillingsService } from 'src/app/services/fillings.service';
+import { Filling } from 'src/app/models/filling.model';
+
+@Component({
+  selector: 'app-add-filling',
+  templateUrl: './add-filling.component.html',
+  styleUrls: ['./add-filling.component.sass']
+})
+export class AddFillingComponent implements OnInit {
+  
+  public addFillingForm = this.fb.group({
+    km: ['', [Validators.required, Validators.pattern("^[0-9]*$")]],
+    volume: ['', [Validators.required, Validators.pattern("^[0-9]*$")]]
+  }); 
+
+  constructor( private fb: FormBuilder, private fs: FillingsService ) { }
+  
+    ngOnInit(): void {
+    }
+
+    saveFilling() {
+      this.fs.saveFilling( this.addFillingForm.value ).subscribe(
+        resp => {
+          Swal.fire('Filling Added');
+          this.addFillingForm.reset();
+          console.log(resp);
+        }, (err) => console.error(err)        
+      );      
+    }
+}
+
+

@@ -1,0 +1,29 @@
+<div class="row">
+    <div class="col s12 m8 offset-m2 xl8 offset-xl2">
+        <table class="responsive-table highlight">
+            <thead>
+                <tr>
+                    <th>KM</th>
+                    <th>Galons</th>
+                    <th>Date</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let filling of fillings">
+                    <td>{{filling.km}}</td>
+                    <td>{{filling.volume}}</td>
+                    <td>{{filling.createdAt | date : 'longDate'}}</td>
+                    <td><i class="fas fa-edit"></i></td>
+                    <td><i (click)="deleteFilling(filling)" class="fa-solid fa-trash-can"></i></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<a class="btn-floating btn-large waves-effect waves-light blue" (click)="openModal()"><i class="material-icons">add</i></a>
+
+<app-add-filling [class.hidden]="showModal"></app-add-filling>

@@ -1,0 +1,19 @@
+<div class="modal-wrapper">
+
+    <div id="modal1" class="modal">
+
+        <div class="modal-content">
+            <div class="row">
+                <div class="col s10 offset-s1 m10 offset-m1 l10 offset-l1">
+                    <form [formGroup]="addFillingForm">
+                        <input formControlName="km" type="number" id="fname" name="km" placeholder="Km">
+                        <input formControlName="volume" type="number" id="lname" name="gl" placeholder="Galons">
+                        <button class="btn waves-effect waves-light blue" type="submit" value="Save" (click)="saveFilling()">Save</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay"></div>
+</div>
