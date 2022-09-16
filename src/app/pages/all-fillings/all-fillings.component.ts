@@ -10,7 +10,7 @@ import Swal from 'sweetalert2';
 })
 export class AllFillingsComponent implements OnInit {
 
-  public showModal = true;
+  public showModal = false;
 
   constructor( private fillingService: FillingsService) { }
   
@@ -19,18 +19,15 @@ export class AllFillingsComponent implements OnInit {
 
   ngOnInit(): void {
     this.all = this.loadFillings(); 
-    // this.calculateAverage(this.all);
   }
   
   openModal() {
-    this.showModal = !this.showModal;
+    this.showModal = true;
   }
 
-  // calculateAverage(arr:Filling[]) {
-  //   const km = arr.map(element => element.km);
-  //   console.log(`${km}  from calculate average `);
-  //   return km;
-  // }
+  closeModal(evt: Event){
+   this.showModal = false; 
+  }
 
   loadFillings() {
     this.fillingService.getFillings()
@@ -41,10 +38,29 @@ export class AllFillingsComponent implements OnInit {
     
   }
 
-  
-  deleteFilling( filling: Filling ) {
-      console.log(`Deleting ${filling.km}`);
+  editFilling(filling: Filling){
 
+    
+    //  Swal.fire({
+    //     title: `You're editing the entry ${filling.km}?`,
+    //     icon: 'info',
+    //     showCancelButton: true,
+    //     confirmButtonColor: '#3085d6',
+    //     cancelButtonColor: '#d33',
+    //     confirmButtonText: 'Save Filling',
+    //     reverseButtons: true
+    //   }).then((result) => {
+    //     if (result.isConfirmed) {
+    //       this.fillingService.updateFilling(filling).subscribe(
+    //         resp => { 
+    //           Swal.fire('Entry Updated');
+    //           this.loadFillings();
+    //     });
+    //     }
+    //   })
+  }
+
+  deleteFilling( filling: Filling ) {
       Swal.fire({
         title: `Delete entry ${filling.km}?`,
         text: `Are you sure you want to delete this entry? `,
@@ -52,7 +68,8 @@ export class AllFillingsComponent implements OnInit {
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!'
+        confirmButtonText: 'Yes, delete it!',
+        reverseButtons: true
       }).then((result) => {
         if (result.isConfirmed) {
           this.fillingService.deleteFilling(filling).subscribe(

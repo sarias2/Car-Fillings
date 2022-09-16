@@ -14,6 +14,8 @@ import { GraphicsComponent } from './pages/graphics/graphics.component';
 import { CommonModule } from '@angular/common';
 import * as PlotlyJS from 'plotly.js-dist-min';
 import { PlotlyModule } from 'angular-plotly.js';
+import { EditFillingComponent } from './pages/edit-filling/edit-filling.component';
+import { DatePipe } from '@angular/common'
 PlotlyModule.plotlyjs = PlotlyJS;
 
 
@@ -22,7 +24,8 @@ PlotlyModule.plotlyjs = PlotlyJS;
     AppComponent,
     AddFillingComponent,
     AllFillingsComponent,
-    GraphicsComponent
+    GraphicsComponent,
+    EditFillingComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +42,7 @@ PlotlyModule.plotlyjs = PlotlyJS;
       registrationStrategy: 'registerWhenStable:30000'
     })
   ],
-  providers: [FillingsService],
+  providers: [FillingsService, DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

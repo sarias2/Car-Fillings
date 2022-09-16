@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import Swal from 'sweetalert2'
 import { FillingsService } from 'src/app/services/fillings.service';
@@ -15,10 +15,18 @@ export class AddFillingComponent implements OnInit {
     km: ['', [Validators.required, Validators.pattern("^[0-9]*$")]],
     volume: ['', [Validators.required, Validators.pattern("^[0-9]*$")]]
   }); 
-
+  
+  
   constructor( private fb: FormBuilder, private fs: FillingsService ) { }
   
-    ngOnInit(): void {
+  ngOnInit(): void {
+  }
+  
+  @Input() 
+  @Output() closeModal = new EventEmitter();
+
+    hideModal() {
+      this.closeModal.emit(false)
     }
 
     saveFilling() {

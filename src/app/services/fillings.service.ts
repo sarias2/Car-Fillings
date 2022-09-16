@@ -25,9 +25,19 @@ export class FillingsService {
     );
   }
 
+  getSingleFilling(id: string | null) {
+    const url = `${ base_url }/fillings/${ id }`;
+    return this.http.get<Filling[]>( url ).pipe(map((resp:any) => resp.filling));
+  }
+
   saveFilling( data: any ) {
     const url = `${ base_url }/fillings`;
     return this.http.post( url, data );
+  }
+
+  updateFilling( id: string | null, filling: Filling) {
+    const url = `${ base_url}/fillings/${ id }`;
+    return this.http.put( url, filling);
   }
 
   deleteFilling( filling:Filling ) {
