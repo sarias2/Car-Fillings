@@ -3,6 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import Swal from 'sweetalert2'
 import { FillingsService } from 'src/app/services/fillings.service';
 import { Filling } from 'src/app/models/filling.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-filling',
@@ -17,7 +18,7 @@ export class AddFillingComponent implements OnInit {
   }); 
   
   
-  constructor( private fb: FormBuilder, private fs: FillingsService ) { }
+  constructor( private fb: FormBuilder, private fs: FillingsService, private router:Router) { }
   
   ngOnInit(): void {
   }
@@ -27,14 +28,16 @@ export class AddFillingComponent implements OnInit {
 
     hideModal() {
       this.closeModal.emit(false)
+      console.log('False emited');
+      
     }
 
     saveFilling() {
       this.fs.saveFilling( this.addFillingForm.value ).subscribe(
         resp => {
           Swal.fire('Filling Added');
+        this.router.navigate(['/'])
           this.addFillingForm.reset();
-          console.log(resp);
         }, (err) => console.error(err)        
       );      
     }

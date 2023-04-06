@@ -1,2 +1,7 @@
-<h2>Average Km/Gal: {{avg}}</h2>
-<plotly-plot [data]="graph2.data" [layout]="graph2.layout" [useResizeHandler]="true"></plotly-plot>
+<div class="row ">
+    <div class="col s10 offset-s1 m10 offset-m1 l10 offset-l1">
+        <h4>Average Km/Gal: {{avg}}</h4>
+        <div class="divider"></div>
+        <plotly-plot [data]="graph.data" [layout]="graph.layout" [useResizeHandler]="true"></plotly-plot>
+    </div>
+</div>

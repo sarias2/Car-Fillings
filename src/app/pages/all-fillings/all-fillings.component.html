@@ -15,7 +15,7 @@
                 <tr *ngFor="let filling of fillings">
                     <td>{{filling.km}}</td>
                     <td>{{filling.volume}}</td>
-                    <td>{{filling.createdAt | date : 'longDate'}}</td>
+                    <td>{{filling.date | date : 'longDate'}}</td>
                     <td><i [routerLink]="[filling._id]" class="fas fa-edit pointer"></i></td>
                     <td><i (click)="deleteFilling(filling)" class="fa-solid fa-trash-can pointer"></i></td>
                 </tr>
@@ -24,6 +24,4 @@
     </div>
 </div>
 
-<a class="btn-floating btn-large waves-effect waves-light  deep-purple accent-4 fixed-bottom-right" (click)="openModal()"><i class="material-icons">add</i></a>
-
-<app-add-filling [class.hidden]="!showModal" (closeModal)="closeModal($event)"></app-add-filling>
+<a class="btn-floating btn-large waves-effect waves-light  deep-purple accent-4 fixed-br" [routerLink]="[ '/add-filling']"><i class="material-icons">add</i></a>

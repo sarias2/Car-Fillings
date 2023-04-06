@@ -1,11 +1,17 @@
-<nav>
-    <div class="nav-wrapper deep-purple accent-4">
-        <a href="#!" class="center">
-            <h1>Car Fills</h1>
-        </a>
-        <ul class="left hide-on-med-and-down">
-        </ul>
-    </div>
-</nav>
+<div class="navbar-fixed">
+
+    <nav>
+        <div class="nav-wrapper deep-purple accent-4">
+            <a href="#!" class="brand-logo center">
+                <h1>Car Fills</h1>
+            </a>
+            <ul class="right ">
+                <li class="background-icon">
+                    <a [routerLink]="[ '/graphics' ]"><i class="material-icons">show_chart</i></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
 
 <router-outlet class="container blue-grey"></router-outlet>

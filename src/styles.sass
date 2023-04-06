@@ -1,12 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
-@import url('https://fonts.googleapis.com/css2?family=Smooch:400')
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap')
+$background-color:  #263238
 
 h1,h2,h3,h4,h5,h6 
   margin: 0
-  font-family: 'Smooch'
+  font-family: 'Roboto'
+
+h1
+  font-size: 3.5rem
 
 html
-  background: #263238
+  background: $background-color 
   color: #fff
   input
     color: #fff
@@ -35,3 +39,29 @@ app-add-filling
 .modal-content
   background: #263238
   color: #fff
+
+.fixed-br
+  position: fixed
+  bottom: 5% 
+  right: 5%
+
+td
+  border-radius: 0
+
+.divider
+  height: 3rem
+  background: transparent
+
+.background-icon
+  border: 2px solid #fff
+  border-radius: 1rem
+  margin: 0.5rem
+  height: 3.2rem
+  width: 3.2rem
+  a
+    padding: 0
+    i
+      height: 3rem
+      width: 3rem
+      line-height: 3rem
+      text-align: center

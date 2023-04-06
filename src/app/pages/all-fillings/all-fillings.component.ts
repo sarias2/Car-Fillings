@@ -38,28 +38,6 @@ export class AllFillingsComponent implements OnInit {
     
   }
 
-  editFilling(filling: Filling){
-
-    
-    //  Swal.fire({
-    //     title: `You're editing the entry ${filling.km}?`,
-    //     icon: 'info',
-    //     showCancelButton: true,
-    //     confirmButtonColor: '#3085d6',
-    //     cancelButtonColor: '#d33',
-    //     confirmButtonText: 'Save Filling',
-    //     reverseButtons: true
-    //   }).then((result) => {
-    //     if (result.isConfirmed) {
-    //       this.fillingService.updateFilling(filling).subscribe(
-    //         resp => { 
-    //           Swal.fire('Entry Updated');
-    //           this.loadFillings();
-    //     });
-    //     }
-    //   })
-  }
-
   deleteFilling( filling: Filling ) {
       Swal.fire({
         title: `Delete entry ${filling.km}?`,
@@ -82,4 +60,5 @@ export class AllFillingsComponent implements OnInit {
       
   }
 }
+
 

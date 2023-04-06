@@ -32,6 +32,7 @@ export class FillingsService {
 
   saveFilling( data: any ) {
     const url = `${ base_url }/fillings`;
+    data.date = new Date();
     return this.http.post( url, data );
   }
 
